@@ -3,7 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
-  const { user, handleLogOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -81,7 +82,7 @@ export default function Navbar() {
           </div>
           {user ? (
             <button
-              onClick={handleLogOut}
+              onClick={logOut}
               className="btn bg-[#F4C724] text-[#333333]"
             >
               Log out

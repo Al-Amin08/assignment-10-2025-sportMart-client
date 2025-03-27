@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, auth, googleProvider, setUser } = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const Register = () => {
           .then(() => {
             console.log("toast");
             toast.success("Your Account is Registered ");
-            // navigate("/");
+            navigate("/");
           })
           .catch((err) => console.error(err));
       })
