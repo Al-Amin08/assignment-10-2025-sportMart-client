@@ -1,6 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
+  const { user, handleLogOut } = useContext(AuthContext);
   const links = (
     <>
       <li>
@@ -10,7 +13,7 @@ export default function Navbar() {
         <NavLink to={"/"}>All Sports Equipment</NavLink>
       </li>
       <li>
-        <NavLink to={"/"}>Add Equipment</NavLink>
+        <NavLink to={"/addEquipment"}>Add Equipment</NavLink>
       </li>
       <li>
         <NavLink to={"/"}>My Equipment</NavLink>
@@ -18,7 +21,7 @@ export default function Navbar() {
     </>
   );
   return (
-    <div className="bg-white/90">
+    <div className="bg-white">
       <div className="navbar bg-base-100 shadow-sm ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -44,6 +47,18 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
+              <li>
+                {user && (
+                  <>
+                    <img
+                      className="w-12 h-12 rounded-full object-cover"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                    <span>{user.displayName}</span>
+                  </>
+                )}
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -52,7 +67,30 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="lg:flex gap-3 mr-6 items-center hidden">
+            {user && (
+              <>
+                <img
+                  className="w-9 h-9 rounded-full object-cover"
+                  src={user.photoURL}
+                  alt=""
+                />
+                <span>{user.displayName}</span>
+              </>
+            )}
+          </div>
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn bg-[#F4C724] text-[#333333]"
+            >
+              Log out
+            </button>
+          ) : (
+            <Link to={"/login"} className="btn bg-[#F4C724] text-[#333333]">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
