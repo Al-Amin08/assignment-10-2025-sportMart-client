@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const AddEquipment = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user.email, user.displayName);
   const handleAddEquipment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -262,6 +265,8 @@ const AddEquipment = () => {
                   required
                   placeholder="User Name "
                   className="input input-bordered w-full"
+                  defaultValue={user?.displayName}
+                  readOnly
                 />
               </label>
             </div>
@@ -276,6 +281,8 @@ const AddEquipment = () => {
                   name="photo"
                   placeholder="Photo URL"
                   className="input input-bordered w-full"
+                  defaultValue={user?.email}
+                  readOnly
                 />
               </label>
             </div>
