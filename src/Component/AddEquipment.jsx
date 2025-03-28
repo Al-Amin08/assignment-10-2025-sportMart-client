@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddEquipment = () => {
   const { user } = useContext(AuthContext);
@@ -33,78 +34,78 @@ const AddEquipment = () => {
       photo,
     };
 
-    [
-      {
-        image: "https://example.com/images/cricket_bat.jpg",
-        itemName: "Cricket Bat",
-        categoryName: "Cricket Equipment",
-        description:
-          "Premium grade English willow bat for professional players.",
-        price: 120.99,
-        rating: 4.8,
-        customization: "Extra Grip",
-        processingTime: "3-5 days",
-        stockStatus: 15,
-      },
-      {
-        image: "https://example.com/images/football.jpg",
-        itemName: "Football",
-        categoryName: "Football Equipment",
-        description:
-          "Durable, high-quality leather football for all weather conditions.",
-        price: 49.99,
-        rating: 4.6,
-        customization: "Custom Logo Printing",
-        processingTime: "2-4 days",
-        stockStatus: 30,
-      },
-      {
-        image: "https://example.com/images/tennis_racket.jpg",
-        itemName: "Tennis Racket",
-        categoryName: "Tennis Equipment",
-        description: "Lightweight graphite frame with a comfortable grip.",
-        price: 89.99,
-        rating: 4.7,
-        customization: "Custom Grip Size",
-        processingTime: "4-6 days",
-        stockStatus: 20,
-      },
-      {
-        image: "https://example.com/images/running_shoes.jpg",
-        itemName: "Running Shoes",
-        categoryName: "Sports Shoes",
-        description: "Breathable, cushioned running shoes for maximum comfort.",
-        price: 69.99,
-        rating: 4.5,
-        customization: "Custom Color",
-        processingTime: "5-7 days",
-        stockStatus: 50,
-      },
-      {
-        image: "https://example.com/images/basketball_jersey.jpg",
-        itemName: "Basketball Jersey",
-        categoryName: "Sports Apparel",
-        description:
-          "Moisture-wicking jersey for professional and casual players.",
-        price: 39.99,
-        rating: 4.4,
-        customization: "Custom Name & Number",
-        processingTime: "3-5 days",
-        stockStatus: 25,
-      },
-      {
-        image: "https://example.com/images/gym_gloves.jpg",
-        itemName: "Gym Gloves",
-        categoryName: "Fitness Accessories",
-        description:
-          "High-quality gym gloves for better grip and wrist support.",
-        price: 19.99,
-        rating: 4.3,
-        customization: "Custom Logo",
-        processingTime: "2-3 days",
-        stockStatus: 40,
-      },
-    ];
+    // [
+    // {
+    //   image: "https://example.com/images/cricket_bat.jpg",
+    //   itemName: "Cricket Bat",
+    //   categoryName: "Cricket Equipment",
+    //   description:
+    //     "Premium grade English willow bat for professional players.",
+    //   price: 120.99,
+    //   rating: 4.8,
+    //   customization: "Extra Grip",
+    //   processingTime: "3-5 days",
+    //   stockStatus: 15,
+    // },
+    // {
+    //   image: "https://example.com/images/football.jpg",
+    //   itemName: "Football",
+    //   categoryName: "Football Equipment",
+    //   description:
+    //     "Durable, high-quality leather football for all weather conditions.",
+    //   price: 49.99,
+    //   rating: 4.6,
+    //   customization: "Custom Logo Printing",
+    //   processingTime: "2-4 days",
+    //   stockStatus: 30,
+    // },
+    // {
+    //   image: "https://example.com/images/tennis_racket.jpg",
+    //   itemName: "Tennis Racket",
+    //   categoryName: "Tennis Equipment",
+    //   description: "Lightweight graphite frame with a comfortable grip.",
+    //   price: 89.99,
+    //   rating: 4.7,
+    //   customization: "Custom Grip Size",
+    //   processingTime: "4-6 days",
+    //   stockStatus: 20,
+    // },
+    //   {
+    //     image: "https://example.com/images/running_shoes.jpg",
+    //     itemName: "Running Shoes",
+    //     categoryName: "Sports Shoes",
+    //     description: "Breathable, cushioned running shoes for maximum comfort.",
+    //     price: 69.99,
+    //     rating: 4.5,
+    //     customization: "Custom Color",
+    //     processingTime: "5-7 days",
+    //     stockStatus: 50,
+    //   },
+    //   {
+    //     image: "https://example.com/images/basketball_jersey.jpg",
+    //     itemName: "Basketball Jersey",
+    //     categoryName: "Sports Apparel",
+    //     description:
+    //       "Moisture-wicking jersey for professional and casual players.",
+    //     price: 39.99,
+    //     rating: 4.4,
+    //     customization: "Custom Name & Number",
+    //     processingTime: "3-5 days",
+    //     stockStatus: 25,
+    //   },
+    //   {
+    //     image: "https://example.com/images/gym_gloves.jpg",
+    //     itemName: "Gym Gloves",
+    //     categoryName: "Fitness Accessories",
+    //     description:
+    //       "High-quality gym gloves for better grip and wrist support.",
+    //     price: 19.99,
+    //     rating: 4.3,
+    //     customization: "Custom Logo",
+    //     processingTime: "2-3 days",
+    //     stockStatus: 40,
+    //   },
+    // ];
 
     fetch("http://localhost:5000/equipment", {
       method: "POST",
@@ -114,11 +115,18 @@ const AddEquipment = () => {
       body: JSON.stringify(allEquipmentData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data.insertedId);
+        if (data?.insertedId) {
+          toast.success("Product added successfully.");
+        }
+        form.reset();
+      });
   };
 
   return (
     <div className=" w-10/12 mx-auto mb-52 mt-20">
+      <Toaster position="top-center" reverseOrder={false} />
       <form onSubmit={handleAddEquipment}>
         <div className=" ">
           {/* first row */}
@@ -252,6 +260,8 @@ const AddEquipment = () => {
                   required
                   placeholder="User Email "
                   className="input input-bordered w-full"
+                  defaultValue={user?.email}
+                  readOnly
                 />
               </label>
             </div>
@@ -281,8 +291,6 @@ const AddEquipment = () => {
                   name="photo"
                   placeholder="Photo URL"
                   className="input input-bordered w-full"
-                  defaultValue={user?.email}
-                  readOnly
                 />
               </label>
             </div>
