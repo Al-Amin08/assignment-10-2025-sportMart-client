@@ -107,7 +107,7 @@ const AddEquipment = () => {
     //   },
     // ];
 
-    fetch("http://localhost:5000/equipment", {
+    fetch("http://localhost:5000/equipments", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
