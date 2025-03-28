@@ -5,6 +5,7 @@ import Root from "../Component/Root";
 import AddEquipment from "../Component/AddEquipment";
 import Login from "../Component/Login";
 import Register from "../Component/Register";
+import PrivateRoute from "../Privateroute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/addEquipment",
-        element: <AddEquipment></AddEquipment>,
+        element: (
+          <PrivateRoute>
+            <AddEquipment></AddEquipment>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

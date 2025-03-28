@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
+import toast from "daisyui/components/toast";
 
 const Login = () => {
   const { signInUser, googleProvider, auth, setUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -13,13 +18,21 @@ const Login = () => {
     console.log(email, password);
 
     signInUser(email, password)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        navigate(location?.state || "/");
+        toast("Login Successfully");
+      })
       .catch((err) => console.error(err));
   };
 
   const handleSignInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
-      .then((res) => setUser(res.user))
+      .then((res) => {
+        setUser(res.user);
+
+        toast("Login Successfully");
+      })
       .catch((err) => console.error(err));
   };
   return (
@@ -61,7 +74,7 @@ const Login = () => {
             onClick={handleSignInWithGoogle}
             className="font-medium btn bg-white border-none shadow-md w-2/3 mx-auto mb-5 text-[#333333]"
           >
-            Sign in with Google <FcGoogle />
+            <FcGoogle /> Sign in with Google
           </p>
           <p className="text-center font-medium pb-3 pt-2 text-[#333333]">
             Don't Have An Account?{" "}
