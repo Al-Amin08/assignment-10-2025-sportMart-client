@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/product/:id",
+        path: "/equipments/:id",
         element: (
           <PrivateRoute>
             <ProductDetails></ProductDetails>
@@ -47,12 +47,14 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:5000/equipments/${params.id}`),
       },
       {
-        path: "/myEquipment",
+        path: "/myEquipments/:email",
         element: (
           <PrivateRoute>
             <MyEquipment></MyEquipment>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/myEquipments/${params.email}`),
       },
     ],
   },

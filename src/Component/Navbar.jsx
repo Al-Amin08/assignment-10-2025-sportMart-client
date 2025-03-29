@@ -17,7 +17,7 @@ export default function Navbar() {
         <NavLink to={"/addEquipment"}>Add Equipment</NavLink>
       </li>
       <li>
-        <NavLink to={"/"}>My Equipment</NavLink>
+        <NavLink to={`/myEquipments/${user?.email}`}>My Equipment</NavLink>
       </li>
     </>
   );

@@ -39,7 +39,7 @@ const Product = ({ product }) => {
             <div className="card-actions justify-end">
               <Link
                 className="btn bg-[#2F80ED] text-white rounded-4xl"
-                to={`/product/${_id}`}
+                to={`/equipments/${_id}`}
               >
                 Details
               </Link>
