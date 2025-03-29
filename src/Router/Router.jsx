@@ -8,6 +8,7 @@ import Register from "../Component/Register";
 import PrivateRoute from "../Privateroute/PrivateRoute";
 import Home from "../Component/Home/Home";
 import ProductDetails from "../Component/Home/ProductDetails";
+import MyEquipment from "../Component/MyEquipment";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/equipments/${params.id}`),
+      },
+      {
+        path: "/myEquipment",
+        element: (
+          <PrivateRoute>
+            <MyEquipment></MyEquipment>
+          </PrivateRoute>
+        ),
       },
     ],
   },
