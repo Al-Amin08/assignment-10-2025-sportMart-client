@@ -10,6 +10,8 @@ import Home from "../Component/Home/Home";
 import ProductDetails from "../Component/Home/ProductDetails";
 import MyEquipment from "../Component/MyEquipment";
 import UpdateMyEquipment from "../Component/UpdateMyEquipment";
+import { element } from "prop-types";
+import AllSportsEquipment from "../Component/Home/AllSportsEquipment";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,11 @@ export const router = createBrowserRouter([
         path: "/updateMyEquipment/:id",
         element: <UpdateMyEquipment></UpdateMyEquipment>,
         loader: () => fetch(``),
+      },
+      {
+        path: "/allSportsEquipment",
+        element: <AllSportsEquipment></AllSportsEquipment>,
+        loader: () => fetch("http://localhost:5000/equipments"),
       },
     ],
   },

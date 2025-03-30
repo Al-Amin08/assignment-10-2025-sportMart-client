@@ -11,7 +11,7 @@ export default function Navbar() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/"}>All Sports Equipment</NavLink>
+        <NavLink to={"/allSportsEquipment"}>All Sports Equipment</NavLink>
       </li>
       <li>
         <NavLink to={"/addEquipment"}>Add Equipment</NavLink>
