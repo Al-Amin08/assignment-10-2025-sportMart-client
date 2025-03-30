@@ -9,6 +9,7 @@ import PrivateRoute from "../Privateroute/PrivateRoute";
 import Home from "../Component/Home/Home";
 import ProductDetails from "../Component/Home/ProductDetails";
 import MyEquipment from "../Component/MyEquipment";
+import UpdateMyEquipment from "../Component/UpdateMyEquipment";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,11 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/myEquipments/${params.email}`),
+      },
+      {
+        path: "/updateMyEquipment/:id",
+        element: <UpdateMyEquipment></UpdateMyEquipment>,
+        loader: () => fetch(``),
       },
     ],
   },

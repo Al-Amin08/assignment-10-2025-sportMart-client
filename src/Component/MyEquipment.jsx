@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyEquipment = () => {
@@ -18,9 +18,10 @@ const MyEquipment = () => {
   //     username,
   //     photo,
   //   } = loadedData;
-  console.log(loadedData);
+  // console.log(loadedData);
 
   const handleDelete = (_id) => {
+    // console.log("clicked id ", _id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -36,6 +37,7 @@ const MyEquipment = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -43,7 +45,6 @@ const MyEquipment = () => {
                 icon: "success",
               });
             }
-            console.log(data);
           });
         const remainingProducts = loadedProducts.filter(
           (product) => product._id != _id
@@ -71,7 +72,9 @@ const MyEquipment = () => {
                 <span className="font-bold ">Price: </span> {product.price}$
               </p>
               <div className="card-actions pt-5">
-                <button className="btn btn-primary">Update</button>
+                <Link to={`/updateMyEquipment/${product._id}`}>
+                  <button className="btn btn-primary">Update</button>
+                </Link>
                 <button
                   onClick={() => handleDelete(product._id)}
                   className="btn btn-primary"
