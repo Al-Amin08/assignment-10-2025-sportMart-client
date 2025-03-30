@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -22,8 +23,11 @@ export default function Navbar() {
     </>
   );
   return (
-    <div className="bg-white">
-      <div className="navbar bg-base-100 shadow-sm ">
+    <div className="w-full  shadow-md fixed top-0 left-0 right-0 z-10 glass-effect">
+      <Tooltip anchorSelect=".my-anchor-element" place="bottom">
+        {user.displayName}
+      </Tooltip>
+      <div className="navbar  w-10/12 mx-auto  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,12 +55,13 @@ export default function Navbar() {
               <li>
                 {user && (
                   <>
-                    <img
-                      className="w-12 h-12 rounded-full object-cover"
-                      src={user.photoURL}
-                      alt=""
-                    />
-                    <span>{user.displayName}</span>
+                    <a className="my-anchor-element">
+                      <img
+                        className="w-9 h-9 rounded-full object-cover"
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    </a>
                   </>
                 )}
               </li>
@@ -71,12 +76,13 @@ export default function Navbar() {
           <div className="lg:flex gap-3 mr-6 items-center hidden">
             {user && (
               <>
-                <img
-                  className="w-9 h-9 rounded-full object-cover"
-                  src={user.photoURL}
-                  alt=""
-                />
-                <span>{user.displayName}</span>
+                <a className="my-anchor-element">
+                  <img
+                    className="w-9 h-9 rounded-full object-cover"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                </a>
               </>
             )}
           </div>

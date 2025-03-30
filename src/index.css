@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+a.active {
+  background-color: #2f80ed;
+  color: white;
+}
+html {
+  scroll-behavior: smooth;
+}
