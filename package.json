@@ -12,9 +12,11 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@lottiefiles/dotlottie-react": "^0.13.3",
     "@tailwindcss/vite": "^4.0.15",
     "daisyui": "^5.0.9",
     "firebase": "^11.5.0",
+    "lottie-react": "^2.4.1",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
