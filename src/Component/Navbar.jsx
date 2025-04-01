@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <div className="w-full  shadow-md fixed top-0 left-0 right-0 z-10 glass-effect">
       <Tooltip anchorSelect=".my-anchor-element" place="bottom">
-        {user.displayName}
+        {user?.displayName}
       </Tooltip>
       <div className="navbar  w-10/12 mx-auto  ">
         <div className="navbar-start">
