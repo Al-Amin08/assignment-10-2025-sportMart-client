@@ -26,7 +26,7 @@
 
 # **Live link to the deployed project for client-side**
 
-- equisports-007.netlify.app
+- https://equisports-007.netlify.app
 
 # **Live link to the deployed project server-side**
 
