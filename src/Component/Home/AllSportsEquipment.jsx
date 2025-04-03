@@ -8,7 +8,7 @@ const AllSportsEquipment = () => {
 
   let count = 0;
   if (count <= products.length) {
-    console.log(count);
+    console.log("count");
   }
 
   const handleSort = () => {

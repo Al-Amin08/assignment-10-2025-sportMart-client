@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const AddEquipment = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email, user.displayName);
+
   const handleAddEquipment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -116,7 +116,6 @@ const AddEquipment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.insertedId);
         if (data?.insertedId) {
           toast.success("Product added successfully.");
         }

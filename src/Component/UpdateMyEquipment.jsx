@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const UpdateMyEquipment = () => {
   const { user } = useContext(AuthContext);
   const params = useParams();
-  console.log(params.id);
 
   const handleAddEquipment = (e) => {
     e.preventDefault();
@@ -50,7 +49,6 @@ const UpdateMyEquipment = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data?.modifiedCount) {
           toast.success("Product updated successfully.");
         }

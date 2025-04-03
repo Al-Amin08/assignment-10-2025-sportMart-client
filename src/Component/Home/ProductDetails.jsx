@@ -4,7 +4,7 @@ import ReactStars from "react-stars";
 
 const ProductDetails = () => {
   const loadedData = useLoaderData();
-  console.log(loadedData);
+
   const {
     item,
     category,

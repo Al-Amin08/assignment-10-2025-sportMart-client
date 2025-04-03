@@ -1,12 +1,33 @@
-# React + Vite
+# **Project name**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>
+  EquiSports
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# **5 key features of the project**
 
-## Expanding the ESLint configuration
+- Can add product according to your wish
+- when add product ,notification will show.
+- can sort the product according to the price.
+- can delete product
+- also update own product
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# **Github link**
+
+**Client-side**
+
+- https://github.com/Al-Amin08/assignment-10-2025-sportMart-client
+
+  **Server-side**
+
+- https://github.com/Al-Amin08/assignment-10-2025-sportMart-server
+
+# **Live link to the deployed project for client-side**
+
+- equisports-007.netlify.app
+
+# **Live link to the deployed project server-side**
+
+- https://assignment-10-server-ten-beta.vercel.app/

@@ -25,22 +25,18 @@ const Register = () => {
 
     createUser(email, password)
       .then((res) => {
-        console.log(res.user);
         const profile = {
           displayName: name,
           photoURL: photo,
         };
         updateProfile(auth.currentUser, profile)
           .then(() => {
-            console.log("toast");
             toast.success("Your Account is Registered ");
             navigate("/");
           })
-          .catch((err) => console.error(err));
+          .catch((err) => toast.error(err));
       })
       .catch((err) => {
-        console.error(err);
-
         toast.error("Error during registration:", err);
       });
   };
@@ -48,7 +44,7 @@ const Register = () => {
   const handleSignInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => setUser(res.user))
-      .catch((err) => console.error(err));
+      .catch((err) => toast.error(err));
   };
   return (
     <div>
@@ -90,33 +86,12 @@ const Register = () => {
                 name="password"
               />
 
-              {/* {password === "" ? (
-            <button
-              onClick={() => setShowPassword(!showPassword)}
-              className="btn bg-transparent btn-ghost  btn-xs  absolute top-68 left-80 disabled"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          ) : (
-            <button
-              onClick={() => setShowPassword(!showPassword)}
-              className="btn bg-transparent btn-ghost  btn-xs  absolute top-68 left-80"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          )} */}
-
               <button className="btn bg-[#F4C724] text-[#333333] mt-4">
                 Register
               </button>
             </fieldset>
           </form>
-          {/* <p
-        onClick={handleSignInWithGoogle}
-        className="font-medium btn bg-white border-none shadow-md w-2/3 mx-auto mb-5 text-[#333333]"
-      >
-        Sign in with Google <FcGoogle />
-      </p> */}
+
           <button
             onClick={handleSignInWithGoogle}
             className="btn bg-white text-black border-2 shadow-md w-2/3 mx-auto -mt-8 mb-5"

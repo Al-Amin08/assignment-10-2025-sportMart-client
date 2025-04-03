@@ -67,7 +67,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-bold">Equipment</a>
+          <a className="btn btn-ghost text-xl font-bold">EquiSports</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

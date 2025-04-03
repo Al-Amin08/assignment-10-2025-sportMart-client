@@ -16,7 +16,7 @@ const Product = ({ product }) => {
     photo,
     _id,
   } = product;
-  console.log(item);
+
   return (
     <div>
       <div>

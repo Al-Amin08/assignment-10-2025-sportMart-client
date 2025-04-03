@@ -18,10 +18,8 @@ const MyEquipment = () => {
   //     username,
   //     photo,
   //   } = loadedData;
-  // console.log(loadedData);
 
   const handleDelete = (_id) => {
-    // console.log("clicked id ", _id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -40,7 +38,6 @@ const MyEquipment = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
