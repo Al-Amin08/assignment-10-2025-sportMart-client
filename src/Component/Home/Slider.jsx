@@ -7,6 +7,11 @@ import {
   Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import bat from "../../assets/cricket_bg.webp";
+import football from "../../assets/football_bg.jpg";
+import jersy from "../../assets/jersy_bg.jpg";
+import racket from "../../assets/racket_bg.webp";
+import shoe from "../../assets/shoe_bg.webp";
 
 // Import Swiper styles
 import "swiper/css";
@@ -18,7 +23,7 @@ import "swiper/css/autoplay";
 
 const Slider = () => {
   return (
-    <div className="w-10/12 mx-auto mt-32">
+    <div className=" mt-17">
       <Swiper
         spaceBetween={30}
         effect={"fade"}
@@ -27,44 +32,26 @@ const Slider = () => {
           clickable: true,
         }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="w-full"
+        className="h-full "
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
-        // effect={"coverflow"}
-        // grabCursor={true}
-        // centeredSlides={false}
-        // slidesPerView={"auto"}
-        // coverflowEffect={{
-        //   rotate: 50,
-        //   stretch: 0,
-        //   depth: 50,
-        //   modifier: 1,
-        //   slideShadows: true,
-        //   scale: 1,
-        // }}
-        // pagination={true}
-        // modules={[EffectCoverflow, Pagination]}
-        // className="py-13"
       >
         <SwiperSlide className="bg-center object-cover w-72 h-72">
-          <img
-            className="w-full h-150 object-cover"
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-          />
+          <img className="w-full h-200 object-cover" src={bat} />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full h-150 object-cover"
-            src="https://swiperjs.com/demos/images/nature-2.jpg"
-          />
+          <img className="w-full h-200 object-cover" src={football} />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full h-150 object-cover"
-            src="https://swiperjs.com/demos/images/nature-3.jpg"
-          />
+          <img className="w-full h-200 object-cover" src={jersy} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-200 object-cover" src={shoe} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-200 object-cover" src={racket} />
         </SwiperSlide>
         {/* <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-4.jpg" />

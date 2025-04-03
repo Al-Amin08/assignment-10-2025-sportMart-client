@@ -21,7 +21,7 @@ const Product = ({ product }) => {
     <div>
       <div>
         <div className="card bg-base-100  border border-gray-200 p-4">
-          <figure className="   mx-auto  rounded-lg">
+          <figure className=" rounded-lg">
             <img className="w-120 h-68 object-contain" src={photo} alt={item} />
           </figure>
           <div className="card-body">

@@ -67,7 +67,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Equipment</a>
+          <a className="btn btn-ghost text-xl font-bold">Equipment</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -94,9 +94,17 @@ export default function Navbar() {
               Log out
             </button>
           ) : (
-            <Link to={"/login"} className="btn bg-[#F4C724] text-[#333333]">
-              Login
-            </Link>
+            <>
+              <Link to={"/login"} className="btn bg-[#F4C724] text-[#333333]">
+                Login
+              </Link>
+              <Link
+                to={"/register"}
+                className="btn bg-[#2F80ED] text-white ml-2"
+              >
+                Register
+              </Link>
+            </>
           )}
         </div>
       </div>

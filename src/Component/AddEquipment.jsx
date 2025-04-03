@@ -107,7 +107,7 @@ const AddEquipment = () => {
     //   },
     // ];
 
-    fetch("http://localhost:5000/equipments", {
+    fetch("https://assignment-10-server-ten-beta.vercel.app/equipments", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -131,9 +131,9 @@ const AddEquipment = () => {
         <div className=" ">
           {/* first row */}
 
-          <div className="md:flex mb-3">
+          <div className="md:flex md:mb-3">
             {/* Item Name */}
-            <div className="w-1/2 ">
+            <div className="md:w-1/2 ">
               <legend className="fieldset-legend">Item Name</legend>
               <label className="input-group">
                 <input
@@ -146,7 +146,7 @@ const AddEquipment = () => {
               </label>
             </div>
             {/* Category Name */}
-            <div className=" w-1/2 ml-4">
+            <div className=" md:w-1/2 md:ml-4">
               <legend className="fieldset-legend">Category Name</legend>
               <label className="input-group">
                 <input
@@ -161,9 +161,9 @@ const AddEquipment = () => {
           </div>
 
           {/* second row */}
-          <div className=" md:flex mb-3">
+          <div className=" md:flex md:mb-3">
             {/* Description */}
-            <div className="w-1/2 ">
+            <div className="md:w-1/2 ">
               <legend className="fieldset-legend">Description</legend>
               <label className="input-group">
                 <input
@@ -176,7 +176,7 @@ const AddEquipment = () => {
               </label>
             </div>
             {/* Price */}
-            <div className="w-1/2 ml-4">
+            <div className="md:md:w-1/2 md:ml-4">
               <legend className="fieldset-legend">Price</legend>
               <label className="input-group">
                 <input
@@ -190,9 +190,9 @@ const AddEquipment = () => {
             </div>
           </div>
           {/* third row */}
-          <div className="md:flex mb-3">
+          <div className="md:flex md:mb-3">
             {/* Rating */}
-            <div className="w-1/2 ">
+            <div className="md:md:w-1/2 ">
               <legend className="fieldset-legend">Rating</legend>
               <label className="input-group">
                 <input
@@ -205,7 +205,7 @@ const AddEquipment = () => {
               </label>
             </div>
             {/* Customization */}
-            <div className="w-1/2 ml-4">
+            <div className="md:w-1/2 md:md:ml-4">
               <legend className="fieldset-legend">Customization </legend>
               <label className="input-group">
                 <input
@@ -219,9 +219,9 @@ const AddEquipment = () => {
             </div>
           </div>
           {/* fourth row */}
-          <div className="md:flex mb-3">
+          <div className="md:flex md:mb-3">
             {/* Processing Time */}
-            <div className="w-1/2 ">
+            <div className="md:w-1/2 ">
               <legend className="fieldset-legend">Processing Time </legend>
               <label className="input-group">
                 <input
@@ -234,7 +234,7 @@ const AddEquipment = () => {
               </label>
             </div>
             {/* Stock Status */}
-            <div className="w-1/2 ml-4">
+            <div className="md:w-1/2 md:ml-4">
               <legend className="fieldset-legend">Stock Status </legend>
               <label className="input-group">
                 <input
@@ -249,9 +249,9 @@ const AddEquipment = () => {
           </div>
 
           {/* fifth row */}
-          <div className="md:flex mb-3">
+          <div className="md:flex md:mb-3">
             {/* User Email */}
-            <div className="w-1/2 ">
+            <div className="md:w-1/2 ">
               <legend className="fieldset-legend">User Email </legend>
               <label className="input-group">
                 <input
@@ -266,7 +266,7 @@ const AddEquipment = () => {
               </label>
             </div>
             {/* User Name */}
-            <div className="w-1/2 ml-4">
+            <div className="md:w-1/2 md:ml-4">
               <legend className="fieldset-legend">User Name </legend>
               <label className="input-group">
                 <input
@@ -295,7 +295,9 @@ const AddEquipment = () => {
               </label>
             </div>
           </div>
-          <button className="btn btn-block">Add Equipment</button>
+          <button className="btn btn-block bg-[#2F80ED] text-white">
+            Add Equipment
+          </button>
         </div>
       </form>
     </div>

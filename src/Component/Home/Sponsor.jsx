@@ -18,7 +18,7 @@ import samsung from "../../assets/samsung-logo-svgrepo-com.svg";
 const Sponsor = () => {
   return (
     <div className="my-28">
-      <h1 className="text-center font-bold text-4xl mb-5">Our Sponsor</h1>
+      <h1 className="text-center font-bold text-4xl mb-6">Our Client</h1>
       <Marquee
         // autoFill={true}
         play={true}
@@ -30,7 +30,7 @@ const Sponsor = () => {
         loop={0} //infinite
         gradient={true}
         gradientColor="white"
-        gradientWidth={300}
+        gradientWidth={250}
         className="flex gap-7"
       >
         {/* <MainWrapper>
@@ -70,16 +70,20 @@ const Sponsor = () => {
             </SquareLogoWrapper>
           </LogoStrip>
         </MainWrapper> */}
-        <img className="max-w-40  mx-8" src={adidas} alt="" />
-        <img className="max-w-40  mx-8" src={mastercard} alt="" />
-        <img className="max-w-40  mx-8" src={mercedes} alt="" />
-        <img className="max-w-40  mx-8" src={paypal} alt="" />
-        <img className="max-w-40  mx-8" src={amazon} alt="" />
-        <img className="max-w-40  mx-8" src={mongodb} alt="" />
-        <img className="max-w-40  mx-8" src={samsung} alt="" />
-        <img className="max-w-40  mx-8" src={linkedin} alt="" />
-        <img className="max-w-40  mx-8" src={nike} alt="" />
-        <img className="max-w-40  mx-8" src={british_council} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={adidas} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={mastercard} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={mercedes} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={paypal} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={amazon} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={mongodb} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={samsung} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={linkedin} alt="" />
+        <img className="w-20 md:w-30 lg:w-40  mx-8" src={nike} alt="" />
+        <img
+          className="w-20 md:w-30 lg:w-40  mx-8"
+          src={british_council}
+          alt=""
+        />
       </Marquee>
 
       {/* <Marquee

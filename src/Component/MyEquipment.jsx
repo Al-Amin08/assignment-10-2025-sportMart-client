@@ -32,9 +32,12 @@ const MyEquipment = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/equipments/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-ten-beta.vercel.app/equipments/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -54,7 +57,7 @@ const MyEquipment = () => {
     });
   };
   return (
-    <div className="w-10/12 mx-auto ">
+    <div className="w-10/12 mx-auto my-30 ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {loadedProducts.map((product) => (
           <div className="card bg-base-100  shadow-sm">
@@ -73,11 +76,13 @@ const MyEquipment = () => {
               </p>
               <div className="card-actions pt-5">
                 <Link to={`/updateMyEquipment/${product._id}`}>
-                  <button className="btn btn-primary">Update</button>
+                  <button className="btn bg-[#2F80ED] text-white">
+                    Update
+                  </button>
                 </Link>
                 <button
                   onClick={() => handleDelete(product._id)}
-                  className="btn btn-primary"
+                  className="btn bg-[#2F80ED] text-white"
                 >
                   Delete
                 </button>

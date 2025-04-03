@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { signInWithPopup, updateProfile } from "firebase/auth";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, auth, googleProvider, setUser } = useContext(AuthContext);
@@ -15,6 +15,13 @@ const Register = () => {
     const password = form.get("password");
     const name = form.get("name");
     const photo = form.get("photo");
+
+    const regexPass = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!regexPass.test(password)) {
+      return toast.error(
+        "Must contain uppercase, and lowercase letters, and be at least 6 characters long"
+      );
+    }
 
     createUser(email, password)
       .then((res) => {
@@ -45,6 +52,7 @@ const Register = () => {
   };
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="flex justify-center items-center min-h-screen lg:w-1/4 mx-auto p-6">
         <div className="text-center lg:text-left"></div>
         <div className="card bg-base-100 w-full shadow-2xl">

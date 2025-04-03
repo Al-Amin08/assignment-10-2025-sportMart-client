@@ -47,7 +47,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipments/${params.id}`),
+          fetch(
+            `https://assignment-10-server-ten-beta.vercel.app/equipments/${params.id}`
+          ),
       },
       {
         path: "/myEquipments/:email",
@@ -57,7 +59,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myEquipments/${params.email}`),
+          fetch(
+            `https://assignment-10-server-ten-beta.vercel.app/myEquipments/${params.email}`
+          ),
       },
       {
         path: "/updateMyEquipment/:id",
@@ -67,7 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "/allSportsEquipment",
         element: <AllSportsEquipment></AllSportsEquipment>,
-        loader: () => fetch("http://localhost:5000/equipments"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-ten-beta.vercel.app/allEquipments"
+          ),
       },
     ],
   },

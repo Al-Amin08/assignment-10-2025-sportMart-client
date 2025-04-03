@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-import toast from "daisyui/components/toast";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUser, googleProvider, auth, setUser } = useContext(AuthContext);
@@ -19,21 +19,21 @@ const Login = () => {
 
     signInUser(email, password)
       .then((res) => {
-        console.log(res);
         navigate(location?.state || "/");
-        toast("Login Successfully");
+        toast.success("Login Successfully");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => toast.error(err));
   };
 
   const handleSignInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
+        navigate(location?.state || "/");
         setUser(res.user);
 
-        toast("Login Successfully");
+        toast.success("Login Successfully");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => toast.error(err));
   };
   return (
     <div>

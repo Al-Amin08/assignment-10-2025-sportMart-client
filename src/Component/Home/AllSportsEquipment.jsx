@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllSportsEquipment = () => {
   const loadedData = useLoaderData();
@@ -10,8 +11,22 @@ const AllSportsEquipment = () => {
     console.log(count);
   }
 
+  const handleSort = () => {
+    fetch("https://assignment-10-server-ten-beta.vercel.app/sortAllEquipments")
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Sorting in ascending order");
+        setProducts(data);
+      });
+  };
+
   return (
-    <div className="w-10/12 mx-auto mt-15 ">
+    <div className="w-10/12 mx-auto mt-32 mb-52 ">
+      <button onClick={handleSort} className="btn bg-[#2F80ED] text-white">
+        Sort
+      </button>
+      <Toaster position="top-center" reverseOrder={false} />
+
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -31,6 +46,13 @@ const AllSportsEquipment = () => {
                 <td className="font-semibold">{product.item}</td>
                 <td>{product.description}</td>
                 <td className="font-semibold">{product.price}</td>
+                <td>
+                  <Link to={`/equipments/${product._id}`}>
+                    <button className="btn bg-[#2F80ED] text-white rounded-4xl">
+                      View Details
+                    </button>
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
