@@ -1,6 +1,6 @@
-import Lottie from "lottie-react";
 import React from "react";
 import error from "../assets/Error.json";
+import Lottie from "lottie-react";
 
 const ErrorPage = () => {
   return (
