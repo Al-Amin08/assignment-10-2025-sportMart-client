@@ -43,7 +43,10 @@ const Register = () => {
 
   const handleSignInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
-      .then((res) => setUser(res.user))
+      .then((res) => {
+        setUser(res.user);
+        toast.success("Your Account is Registered ");
+      })
       .catch((err) => toast.error(err));
   };
   return (
